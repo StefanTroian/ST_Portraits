@@ -1,0 +1,35 @@
+main {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  height: calc(100% - 5.75rem);
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  text-align: -webkit-center; }
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem; }
+
+#chat {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: left;
+  padding: 2rem; }
+  #chat input {
+    padding: 0.5rem; }
+  #chat textarea, #chat button {
+    padding: 0.5rem;
+    width: -webkit-fill-available; }
+
+#mesaje_chat {
+  border: 1px solid;
+  height: 20rem;
+  padding: 1rem;
+  overflow: auto;
+  width: -webkit-fill-available; }
+
+.material-icons {
+  vertical-align: bottom; }

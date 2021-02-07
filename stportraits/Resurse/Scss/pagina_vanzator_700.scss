@@ -1,0 +1,18 @@
+main {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        'gr-nume'
+        'gr-galerie' 
+        'gr-contact'
+        'gr-descriere'
+        'gr-detalii-c'
+        'gr-despre'
+        'gr-detalii';
+}
+
+#contact {
+    position: relative;
+    top: 0;
+    right: 0;
+    text-align: center;
+}

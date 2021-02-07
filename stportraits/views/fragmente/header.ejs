@@ -1,0 +1,41 @@
+<nav>
+    <img id="icon" src="/Imagini/Pagina_principala/icon_web_st.png" alt="[ST icon]" title="ST">
+    <label id="hamburger" for="ch-menu">
+        <img src="/Imagini/Hamburger_icon_alb.png" alt="menu">
+    </label>
+    <input id="ch-menu" type="checkbox">
+    <ul class="menu">
+        <li>
+            <label id="lbl_icon" ><i class="material-icons">home</i></label>
+            <label id="lbl_submenu" >Acasa</label>
+            <ul class="submenu">
+                <li><a href="/index#anunturi">Anunturi</a></li>
+                <li><a href="/index#despre">Despre</a></li>
+            </ul>
+        </li>
+        <!-- <li><a href="/pagina_vanzator">ST</a></li> -->
+        <li>
+            <label id="lbl_submenu2" >Galerie</label>
+            <ul class="submenu">
+                <li><a href="/galerie_imagini">Imagini</a></li>
+                <li><a href="/galerie_video">Video</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div id="date_user">
+        <% if (locals.utilizator) { %>
+            <img id="img_user" src="<%= locals.utilizator.imagine_u %>" alt="[IMG]">
+            <p title="[<%= locals.utilizator.prenume%> <%= locals.utilizator.nume%>]"><%= locals.utilizator.username %></p>
+            <a href="/logout">Logout</a>
+            <a href="/chat">Chat</a>
+            <% if (locals.utilizator.rol == 'admin') { %>
+                <a href="/utilizatori">Useri</a>
+            <% } %>
+        <% } %>
+        <% if (!locals.utilizator) { %>
+            <a href="/inregistrare">Inregistrare</a>
+            <a href="/login">Login</a>
+        <% } %>
+    </div>
+    <button id="light-dark" onclick="theme()"><i class="material-icons">brightness_2</i></button>
+</nav>

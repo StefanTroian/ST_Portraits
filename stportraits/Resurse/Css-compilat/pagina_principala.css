@@ -1,0 +1,99 @@
+/*main ----------------------------------------------------------------*/
+main {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 2rem;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'gr-vanzator gr-citat gr-citat' 'gr-img gr-img gr-img' 'gr-anunt gr-anunt gr-anunt' 'gr-despre gr-despre gr-despre' 'gr-detalii gr-detalii gr-detalii';
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem; }
+
+#box_vanzator {
+  grid-area: gr-vanzator; }
+
+#citat {
+  grid-area: gr-citat; }
+
+#box_vanzator, #citat {
+  border-style: solid;
+  border-width: 0.1rem;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 0.3rem; }
+
+#box_vanzator a {
+  border: 0.1rem solid;
+  text-decoration: none;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  border-radius: 0.3rem;
+  color: var(--light-color);
+  background: var(--dark-color); }
+
+#handimg {
+  grid-area: gr-img; }
+  #handimg img {
+    width: 100%;
+    height: 4vw; }
+
+#filtre {
+  border-style: solid;
+  border-width: 0.1rem;
+  padding: 2rem;
+  border-radius: 0.3rem;
+  margin-bottom: 2rem; }
+
+#anunturi {
+  grid-area: gr-anunt; }
+
+#an {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem; }
+  #an > * {
+    border-style: solid;
+    border-width: 0.1rem;
+    padding: 2rem;
+    text-align: left;
+    border-radius: 0.3rem; }
+    #an > * .img_anunt {
+      float: right;
+      height: 224px; }
+    #an > * .tabel_anunt, #an > * .duct {
+      float: left; }
+    #an > * .tabel_anunt tr td:nth-child(1) {
+      padding-right: 1rem; }
+
+.denumire > a {
+  text-decoration: none;
+  color: var(--red-color); }
+
+#despre {
+  grid-area: gr-despre; }
+
+button:not(#light-dark) {
+  padding: 0.3rem;
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  border-width: 0.1rem;
+  border-radius: 0.3rem; }
+
+@media print {
+  body {
+    margin-top: 3rem; }
+    body * {
+      color: var(--dark-color); }
+  #banner * {
+    color: var(--dark-color);
+    top: 0;
+    height: 2rem;
+    animation-name: none;
+    position: absolute; }
+  footer {
+    display: none; }
+  @page {
+    size: auto;
+    margin: 2rem; } }

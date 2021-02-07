@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Publicare anunt</title>
+	<%- include("../fragmente/head") %>
+	<link rel="stylesheet" type="text/css" href="/Css-compilat/publica_anunt.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body class="container">
+
+<header>
+    <%- include("../fragmente/header") %>
+</header>
+
+<main class="light">
+    <div class="afisaj">
+        <h1>Publicare anunt</h1>
+    <% if (locals.utilizator) { %>    
+	    <% if (locals.err !="") { %>
+		<form method="post" class="date"  action="/publica_anunt" id="inregistrare" enctype="multipart/form-data" onsubmit="return validateForm()" >
+			
+			<label>
+				Denumire: <input type="text" name="denumire"  placeholder="Portret in creion" required>
+			</label>
+			<label>
+				Descriere: <input type="text" name="descriere" placeholder="Descriere" required>
+			</label>
+			<label>
+				Categorie: <input type="text" name="categorie" placeholder="creion" required>
+			</label>
+			<label>
+				Pret: <input type="text" name="pret" placeholder="100" required>
+			</label>
+			<label>
+				Marime: <input type="text" name="marime" placeholder="3" required>
+			</label>
+			<label>
+				Taguri: <input type="text" name="tag" placeholder="creion, actor" required>
+			</label>
+				Rama: <input type="checkbox" name="rama" checked>
+            <label>
+				Timp realizare: <input type="text" name="timp" placeholder="4" required>
+			</label>
+            <label>
+				Despre vanzator: <input type="text" name="despre" placeholder="despre" required>
+			</label>
+			<label>
+				Imagine: <input type="file" name="imagine" required>
+			</label>
+			<div id="input_div">
+				<input type="reset" value="Reseteaza">
+				<input type="submit" value="Publica">
+			</div>
+		</form>
+	    <% } %>
+	    <%- (locals.raspuns?locals.raspuns:"")+(locals.err?locals.err:"")%>
+    <% } %>
+    </div>
+</main>
+
+<footer>
+    <%- include("../fragmente/footer") %>
+</footer>
+
+</body>
+</html>

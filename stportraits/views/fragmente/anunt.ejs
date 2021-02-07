@@ -1,0 +1,36 @@
+<article id="art<%= locals.anunt.idAnunt%>"> 
+    <div class="duct">
+        <h3 class="denumire"><a href="/anunt_<%= locals.anunt.idAnunt %>"> <%= locals.anunt.Denumire %></a></h3>
+        <p class="username"> Autor: <%= locals.anunt.Username %></p>
+        <p class="categorie"> Categorie: <%= locals.anunt.Categorie %></p>
+        </br>
+        <table class="tabel_anunt">
+            <tr>
+                <td>Pret</td>
+                <td class="pret"><%= locals.anunt.Pret %> lei</td>
+            </tr>
+            <tr>
+                <td>Marime</td>
+                <td class="marime">A<%= locals.anunt.Marime_Ax %></td>
+            </tr>
+            <tr>
+                <td>Taguri</td>
+                <td class="taguri"><%= locals.anunt.Taguri %></td>
+            </tr>
+            <tr>
+                <td>Durata</td>
+                <td class="timp"><%= locals.anunt.Timp_realiare %> zile</td>
+            </tr>
+            <tr>
+                <td>Rama</td>
+                <td class="cu_rama"><%= locals.anunt.Rama %></td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td class="data_publicare"><%= locals.anunt.Data_publicare %></td>
+            </tr>
+        </table>
+        <br>
+    </div>
+    <img class="img_anunt" src="<%= anunt.Imagine %>" alt="<%= anunt.Denumire %>" />
+</article>

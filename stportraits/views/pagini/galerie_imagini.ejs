@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <%- include("../fragmente/head.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/galerie_imagini.css" />
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/galerie_imagini_700.css" media="screen and (max-width: 700px)" />
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/galerie_imagini_400.css" media="screen and (max-width: 400px)" />
+</head>
+<body>
+    <header> 
+        <%- include("../fragmente/header.ejs") %>
+    </header>
+    
+    <main class="light">
+        <div id="galerie" title="galerie desene">
+            <div id="gr">
+                <figure>
+                    <img srcset="/Imagini/Pagina_principala/Img_galerie_1.jpg 4x, 
+                                /Imagini/Pagina_principala/imagini_mediu/Img_galerie_1.jpg 2x,
+                                /Imagini/Pagina_principala/imagini_mic/Img_galerie_1.jpg" 
+                        src="/Imagini/Pagina_principala/Img_galerie_1.jpg" 
+                        alt="desen in creion">
+                </figure>
+                <figure>
+                    <img srcset="/Imagini/Pagina_principala/Img_galerie_2.jpg 4x, 
+                                /Imagini/Pagina_principala/imagini_mediu/Img_galerie_2.jpg 2x,
+                                /Imagini/Pagina_principala/imagini_mic/Img_galerie_2.jpg" 
+                        src="/Imagini/Pagina_principala/Img_galerie_2.jpg" 
+                        alt="desen in creion">
+                </figure>
+                <figure>
+                    <img srcset="/Imagini/Pagina_principala/Img_galerie_3.jpg 4x, 
+                                /Imagini/Pagina_principala/imagini_mediu/Img_galerie_3.jpg 2x,
+                                /Imagini/Pagina_principala/imagini_mic/Img_galerie_3.jpg" 
+                        src="/Imagini/Pagina_principala/Img_galerie_3.jpg" 
+                        alt="desen in creion">
+                </figure>
+                <figure>
+                    <img srcset="/Imagini/Pagina_principala/Img_galerie_4.jpg 4x, 
+                                /Imagini/Pagina_principala/imagini_mediu/Img_galerie_4.jpg 2x,
+                                /Imagini/Pagina_principala/imagini_mic/Img_galerie_4.jpg" 
+                        src="/Imagini/Pagina_principala/Img_galerie_4.jpg" 
+                        alt="desen in creion">
+                </figure>
+                <figure>
+                    <img srcset="/Imagini/Pagina_principala/Img_galerie_5.jpg 4x, 
+                                /Imagini/Pagina_principala/imagini_mediu/Img_galerie_5.jpg 2x,
+                                /Imagini/Pagina_principala/imagini_mic/Img_galerie_5.jpg" 
+                        src="/Imagini/Pagina_principala/Img_galerie_5.jpg" 
+                        alt="desen in creion">
+                </figure>
+                <figure>
+                    <img srcset="/Imagini/Pagina_principala/Img_galerie_6.jpg 4x, 
+                                /Imagini/Pagina_principala/imagini_mediu/Img_galerie_6.jpg 2x,
+                                /Imagini/Pagina_principala/imagini_mic/Img_galerie_6.jpg" 
+                        src="/Imagini/Pagina_principala/Img_galerie_6.jpg" 
+                        alt="desen in creion">
+                </figure>
+                <figure>
+                    <img srcset="/Imagini/Pagina_principala/Img_galerie_7.jpg 4x, 
+                                /Imagini/Pagina_principala/imagini_mediu/Img_galerie_7.jpg 2x,
+                                /Imagini/Pagina_principala/imagini_mic/Img_galerie_7.jpg" 
+                        src="/Imagini/Pagina_principala/Img_galerie_7.jpg" 
+                        alt="desen in creion">
+                </figure>
+                <figure>
+                    <img srcset="/Imagini/Pagina_principala/Img_galerie_8.jpg 4x, 
+                                /Imagini/Pagina_principala/imagini_mediu/Img_galerie_8.jpg 2x,
+                                /Imagini/Pagina_principala/imagini_mic/Img_galerie_8.jpg" 
+                        src="/Imagini/Pagina_principala/Img_galerie_8.jpg" 
+                        alt="desen in creion">
+                </figure>
+            </div>
+        </div>
+        <%- include("../fragmente/banner.ejs") %>
+    </main>
+
+    <footer>
+        <%- include("../fragmente/footer.ejs") %>
+    </footer>
+</body>
+</html>

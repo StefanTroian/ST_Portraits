@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Inregistrare utilizator</title>
+	<%- include("../fragmente/head") %>
+	<link rel="stylesheet" type="text/css" href="/Css-compilat/inregistrare.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+	
+	<script src="/script/inreg.js"></script>
+</head>
+<body class="container">
+
+<header>
+    <%- include("../fragmente/header") %>
+</header>
+
+<main class="light">
+    <div class="afisaj">
+        <h1>Inregistrare</h1>
+        
+	<% if (locals.err !="") { %>
+		<form method="post" class="date"  action="/inregistrare" id="inregistrare" enctype="multipart/form-data" onsubmit="return validateForm()" >
+			
+			<label>
+				Username: <input type="text" name="username"  placeholder="PopescuIon<%= Math.floor(Math.random()*100000) %>" required>
+			</label>
+			
+			<label>
+				Nume: <input type="text" name="nume" placeholder="Popescu" required>
+			</label>
+			
+			<label>
+				Prenume: <input type="text" name="prenume" placeholder="Ion" required>
+			</label>
+			
+			<label>
+				Parola: <input type="password" id="parola" name="parola" value="" required>
+			</label>
+			
+			<label>
+				Reintroduceti parola: <input type="password" id="reparola" name="rparola" value="" required>
+			</label>
+			
+			<label>
+				Email: <input type="text" id="email" name="email" placeholder="numeprenume@gmail.com"  size="40" required>
+			</label>
+			
+			<label>
+				Poza: <input type="file" name="imagine">
+			</label>
+			<div id="input_div">
+				<input type="reset" value="Reseteaza">
+				<input type="submit" value="Trimite">
+			</div>
+		</form>
+	<% } %>
+	<%- (locals.raspuns?locals.raspuns:"")+(locals.err?locals.err:"")%>
+
+    </div>
+</main>
+
+<footer>
+    <%- include("../fragmente/footer") %>
+</footer>
+
+</body>
+</html>

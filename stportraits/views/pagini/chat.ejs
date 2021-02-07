@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Chat</title>
+    <%- include("../fragmente/head") %>
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/chat.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="../../node_modules/socket.io/client-dist/socket.io.js"></script> 
+    <script>port= <%= port %> </script>
+    <script>
+        
+        socketUrl = "../../";  
+        if(document.location.href.indexOf("localhost") != -1) {  
+            socketUrl = "http://127.0.0.1:"+port;
+        }
+        socket = io();
+        socket.on("mesaj_nou", function(nume, mesaj, emoji) {          
+            
+            var d = new Date();
+            var time = "(" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")"; 
+            var chat=document.getElementById("mesaje_chat");
+            chat.innerHTML+=`<p> <span style='font-weight: bold;'>${nume}</span> ${time} spune: <span style='vertical-align: text-bottom;'>${emoji}</span> ${mesaj}</p>`;
+            chat.scrollTop=chat.scrollHeight;
+  
+        });
+        
+        function trimite(){
+    
+            var radios = document.getElementsByName("gr_radio");
+            var emoji = "";
+            for (let rad of radios) {
+                if (rad.checked) {
+                    emoji = rad.value;
+                    break;
+                }
+            }
+            var nume = document.getElementById("n").value + " " + document.getElementById("p").value;
+            var mesaj = document.getElementById("mesaj").value;
+            
+            var http = new XMLHttpRequest();
+            var url = '/chat';
+            var params = `emoji=${emoji}&nume=${nume}&mesaj=${mesaj}`;
+            http.open('POST', url, true);
+    
+            
+            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            
+            http.send(params);
+        }
+    </script>
+        
+</head>
+<body>
+
+<header>
+    <%- include("../fragmente/header") %>
+</header>
+
+<main class="light">
+    <% if (locals.utilizator) { %>
+        <div id="chat">
+            <h1>Chat</h1>
+            <div id="mesaje_chat">
+            </div>
+            
+            <input id="n" type="hidden" value="<%= locals.utilizator.nume %>" name="nume"> 
+            <input id="p" type="hidden" value="<%= locals.utilizator.prenume %>" name="prenume">
+
+            <label>
+                Mesaj: <textarea id="mesaj" name="mesaj" value="bau! "></textarea>
+            </label><br/>
+            
+            <label>
+                <input id="i_radio1" type="radio" name="gr_radio" value='<i class="material-icons">sentiment_very_satisfied</i>'> Fericit
+            </label><br>
+            <label>
+                <input id="i_radio2" type="radio" name="gr_radio" value='<i class="material-icons">sentiment_very_dissatisfied</i>'> Nefericit
+            </label><br>
+            <label>
+                <input id="i_radio3" type="radio" name="gr_radio" value='<i class="material-icons">sentiment_neutral</i>'> Neutru
+            </label><br>
+            <label>
+                <input id="i_radio4" type="radio" name="gr_radio" value="" checked> Nimic
+            </label><br>
+
+            <button onclick="trimite()">Trimite</button>
+        </div>
+    <% } %>
+    <% if (!locals.utilizator) { %>
+        <p>Trebuie sa fiti logat pentru a accesa chat-ul</p>
+    <% } %>
+</main>
+
+<footer>
+    <%- include("../fragmente/footer") %>
+</footer>
+
+</body>
+</html>

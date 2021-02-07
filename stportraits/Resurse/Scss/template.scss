@@ -1,0 +1,314 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-indent: 0;
+    --standard-size: 14px;
+    --light-color: #f4f3ee;
+    --dark-color: #242423;
+    --color-red: #bf0603;
+}
+
+html {
+    font-size: var(--standard-size);
+    font-family: 'Poppins';
+}
+
+body {
+    background-color: var(--light-color);
+}
+
+main.light{
+    --light-color: #f4f3ee;
+    --dark-color: #242423;
+}
+main.dark {
+    --light-color: #242423;
+    --dark-color: #f4f3ee;
+}
+
+#light-dark {
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    border: none;
+    float: right;
+    right: 3rem;
+    top: 1rem;
+    position: absolute;
+    z-index: 101;
+}
+
+#date_user {
+    right: 5rem;
+    top: 1rem;
+    position: absolute;
+    * {
+        float: right;
+        margin-right: 0.5rem; 
+    }
+    >img {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+header {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    height: 3.5rem;
+    border-bottom-style: solid;
+    border-bottom-style: solid;
+    border-image-source: linear-gradient(45deg, var(--color-red), #f4d58d);
+    border-image-slice: 1;
+}
+
+#icon {
+    height: 2.5rem;
+    float: left;
+    margin-left: 3rem;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+a {
+    color: var(--light-color);
+}
+
+nav {
+    width: 100%;
+    top: 0;
+}
+
+@mixin animatie($nume,$durata,$functie,$fill) {
+    animation-name: $nume;
+    animation-duration: $durata * 1s;
+    animation-timing-function: $functie;
+    animation-fill-mode: $fill;
+}
+
+@mixin bloc {
+    display:block;
+    height:	100%;
+    text-decoration:none;
+}
+
+ul.menu > {
+    li {
+        
+        float: left;
+        width: 6rem;
+        
+        &:hover {
+            background: grey;
+            overflow: visible;
+            @include animatie(umbra,0.5,linear, forwards);
+            
+            ul.submenu {
+                display: block;
+                @include animatie(scalee,0.5,linear, forwards);
+            }
+        }
+        
+        > a , > div {
+            @include bloc;
+        }
+        
+        > label {
+            > i {
+                vertical-align: text-bottom;
+            }
+        }
+        > ul.submenu {
+            
+            display: none;
+            
+            > li {
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+                
+                > a {
+                    @include bloc;
+                    
+                    &:hover {
+                        background: grey;
+                    }
+                }
+            }
+        }
+        
+        &, & > ul.submenu > li {
+            display:block;
+            height: 3.5rem;		
+            line-height: 3.5rem;
+            text-align:center;
+            overflow: hidden;		
+            list-style-type:none;
+            background: var(--dark-color);
+        }
+    }
+}
+
+#hamburger{
+    display:none;
+    height:3rem;
+    
+    img{
+        height:80%;
+        width:auto;
+    }
+}
+
+#ch-menu, #ch-submenu, #ch-submenu2 {
+    display:none;
+}
+
+@keyframes umbra {
+    0%      {   text-shadow: 0rem  -4rem 0.15rem    var(--light-color);}
+    100%    {   text-shadow: 0rem   0rem 0.15rem    var(--light-color);}
+}
+
+@keyframes scalee {
+    0%  {   transform: scaleY(0);   margin-top: -3.5rem; }
+    100%{   transform: scaleY(1) }
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0 1rem 0;
+    line-height: 1.5rem;
+}
+
+#link_inceput {
+    height: 1.5rem;
+    float: left;
+    margin-left: 3rem;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-radius: 0.1rem;
+    border-color: var(--light-color);
+}
+
+#detalii {
+    grid-area: gr-detalii;
+    overflow: auto;
+    
+    * {
+        float: left;
+        text-decoration: none;
+    }
+    
+    >p {
+        margin-left: 1rem;
+    }
+    
+    >div {
+        float: right;
+        
+        >a {
+            margin-right: 0.5rem;
+            
+            &:last-of-type {
+                margin-right: 3rem;
+            }
+        }
+    }
+}
+
+.material-icons {
+    font-size: 1.5rem !important;
+}
+
+/*banner ---------------------------------------------------*/
+#banner * {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #bf0603;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0.4rem;
+    @include animatie(banner,6,linear, forwards);
+}
+
+@keyframes banner {
+    0% {    transform: translateY(+200%);}
+    25% {   transform: translateY(-20px);}
+    50% {   transform: translateY(0px);}
+    90% {   color: var(--light-color);}
+    99% {   opacity: 1;}
+    99.5% { transform: translateY(0px); opacity: 0; color: var(--light-color);}
+    100% {  transform: translateY(+200%);}
+}
+
+/* media screen ------------------------------------------------------------- */
+
+@media screen and (max-width: 700px) {
+    
+    html {
+        font-size: 12px;
+    }
+    
+    ul.menu>li{
+        width: 5.5rem;
+        
+        >label {
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+    }
+
+    #date_user p {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+
+    html {
+        font-size: 12px;
+    }
+
+    header {
+        display: flex;
+        position: relative;
+    }
+
+    #hamburger {
+        display: block;
+        width: 0rem;
+    
+        img {
+            margin: 0.5rem;
+        }
+    }
+
+    ul.menu {
+        display: none;
+        >li {
+            width: 100%;
+            &:hover {
+                animation: none;
+            }
+        }
+    }
+
+    #ch-menu:checked~ul.menu {
+        display: block;
+        @include animatie(spacing,0.5,linear, forwards);
+    }
+
+    @keyframes spacing {
+        0%      {   letter-spacing: -0.5rem;}
+        100%    {   letter-spacing: 0.3rem;}
+    }
+}

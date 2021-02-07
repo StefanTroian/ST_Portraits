@@ -1,0 +1,99 @@
+main {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 2rem;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 'gr-nume gr-nume gr-nume gr-nume'
+   'gr-galerie gr-galerie gr-contact gr-contact'
+   'gr-descriere gr-descriere . .'
+   'gr-detalii-c gr-detalii-c . .'
+   'gr-despre gr-despre gr-despre gr-despre'
+   'gr-detalii gr-detalii gr-detalii gr-detalii';
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem; }
+  
+  #nume {
+    grid-area: gr-nume; }
+  
+  #galerie-animata {
+    grid-area: gr-galerie; }
+  
+  #contact {
+    grid-area: gr-contact;
+    position: fixed;
+    padding: 3rem 4% 3rem 4%;
+    right: 3rem;
+    top: 10rem;
+    box-shadow: 0 0 0.1rem;
+    > a {
+      color: var(--light-color);
+      text-decoration: none;
+      background-color: var(--dark-color);
+      border-style: solid;
+      border-width: 0.1rem;
+      padding: 0.5rem 5rem 0.5rem 5rem;
+      border-radius: 0.3rem; }
+    }
+  
+  #descriere {
+    grid-area: gr-descriere; }
+  
+  #despre {
+    grid-area: gr-despre; }
+  
+  #detalii-comanda {
+    grid-area: gr-detalii-c; }
+  
+  .galerie {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border-image: url("../Imagini/Pagina_vanzator/border_image.jpg") 10 stretch;
+    border-style: solid;
+    border-width: 0.5rem; 
+    figure {
+      position: relative;
+      opacity: 1; }
+    }
+  
+  #galerie-animata figure {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+ }
+  
+ table {
+    border-style: solid;
+    color: var(--light-color);
+    border-color: var(--dark-color);
+    border-collapse: collapse;
+    width: 33rem;
+    
+    tr {
+        &:hover {
+            *:not([colspan]) {
+                background-color: var(--light-color);
+                color: var(--dark-color); 
+            }
+        }
+
+        th,td {
+            width: 7rem;
+            padding: 2rem;
+            text-align: center;
+            
+            &:nth-child(2n) {
+                background: var(--color-red);
+            }
+    
+            &:nth-child(2n+1) {
+                background: var(--dark-color);
+            }
+        }
+    }
+}

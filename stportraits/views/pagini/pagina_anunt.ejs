@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../fragmente/head.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/pagina_anunt.css" />
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/pagina_vanzator_700.css" media="screen and (max-width: 700px)" />
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/pagina_vanzator_400.css" media="screen and (max-width: 400px)" />
+    <script src="/script/anunturi.js"></script>
+</head>
+<body>
+    <header> 
+        <%- include("../fragmente/header.ejs") %>
+    </header>
+    
+    <main class="light">
+        <section id="nume">
+            <h1><%= locals.anunt_unic.Nume %> <%= locals.anunt_unic.Prenume %></h1>
+        </section>
+        <div id="galerie-animata" class="galerie">
+            <div>
+                <figure>
+                    <img class="img_anunt" src="<%= locals.anunt_unic.Imagine %>" alt="<%= locals.anunt_unic.Denumire %>" />
+                </figure>
+            </div>
+        </div>
+        <section id="contact">
+            <h2><%= locals.anunt_unic.Denumire %></h2>
+            <p></p>
+            <p>Timp realizare <%= locals.anunt_unic.Timp_realiare %> zile</p>
+            <br>
+            <a href="mailto:<%= locals.anunt_unic.Mail %>">Contacteaza</a>
+        </section>
+        <section id="descriere">
+            <h2>Descriere serviciu</h2>
+            <p><%= locals.anunt_unic.Descriere %></p>
+        </section>
+        <section id="detalii-comanda">
+            <h2>Detalii comanda</h2>
+            <div id="tabel">
+                <table class="tabel_anunt">
+                    <tr>
+                        <td>Pret</td>
+                        <td class="pret"><%= locals.anunt_unic.Pret %> lei</td>
+                    </tr>
+                    <tr>
+                        <td>Marime</td>
+                        <td class="marime">A<%= locals.anunt_unic.Marime_Ax %></td>
+                    </tr>
+                    <tr>
+                        <td>Taguri</td>
+                        <td class="taguri"><%= locals.anunt_unic.Taguri %></td>
+                    </tr>
+                    <tr>
+                        <td>Durata</td>
+                        <td class="timp"><%= locals.anunt_unic.Timp_realiare %> zile</td>
+                    </tr>
+                    <tr>
+                        <td>Rama</td>
+                        <td class="cu_rama"><%= locals.anunt_unic.Rama %></td>
+                    </tr>
+                    <tr>
+                        <td>Data</td>
+                        <td class="data_publicare"><%= locals.anunt_unic.Data_publicare %></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="despre">
+            <h2>Despre artist</h2>
+            <p><%= locals.anunt_unic.Despre_vanzator %>
+            </p>
+        </section><br>
+
+        <%- include("../fragmente/banner.ejs") %>
+    </main>
+
+    <footer>
+        <%- include("../fragmente/footer.ejs") %>
+    </footer>
+</body>
+</html>

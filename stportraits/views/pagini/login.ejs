@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Inregistrare utilizator</title>
+	<%- include("../fragmente/head.ejs") %>
+	<link rel="stylesheet" type="text/css" href="/Css-compilat/login.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <%- include("../fragmente/header") %>
+</header>
+
+<main class="light">
+    <div class="afisaj">
+        <h1>Login</h1>
+		<% if (!locals.utilizator) { %>
+
+			<form id="login" method="post" action="/login">
+				
+				<label>
+					Username: <br><input type="text" name="username" placeholder="Username..">
+				</label><br>
+				<label>
+					Parola: <br><input type="password" name="parola" placeholder="Parola..">
+				</label><br><br>
+				
+				<input type="submit" value="Login"><br>
+				<p><%= locals.mesaj %></p>
+			</form>
+
+		<% } %>
+	</div>
+</main>
+
+<footer>
+    <%- include("../fragmente/footer") %>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+* {
+  --standard-size: 12px; }
+
+main {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 'gr-vanzator gr-citat' 'gr-img gr-img' 'gr-anunt gr-anunt' 'gr-despre gr-despre' 'gr-detalii gr-detalii'; }
+
+#an > * .img_anunt, #an > * .tabel_anunt, #an > * .duct {
+  float: none; }

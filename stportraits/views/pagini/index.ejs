@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <%- include("../fragmente/head.ejs") %>
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/pagina_principala.css" />
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/pagina_principala_700.css" media="screen and (max-width: 700px)" />
+    <link rel="stylesheet" type="text/css" href="/Css-compilat/pagina_principala_400.css" media="screen and (max-width: 400px)" />
+    <script src="/script/anunturi.js"></script>
+</head>
+<body>
+    <header> 
+        <%- include("../fragmente/header.ejs") %>
+    </header>
+    
+    <main class="light">
+        
+        <div id="box_vanzator">
+            <p>Buna,<br>Foloseste-ti <b>creativitatea</b> si obtine profit !</p><br>
+            <% if (locals.utilizator) { %>
+                <a href="/publica_anunt">Publica anunt</a>
+            <% } %>
+            <% if (!locals.utilizator) { %>
+                <a href="/login">Login</a>
+            <% } %>
+        </div>
+        
+        <div id="citat" title="citat desene">
+            <p><q>Desenul înseamnă punerea unei linii în jurul unei idei.</q><br>Henri Matisse</p>
+        </div>
+
+        <div id="handimg">
+            <figure>
+                <img src="Imagini/creion.png" alt="hand" />
+            </figure>
+        </div>
+
+        <section id="anunturi">
+            <h2>Anunturi</h2></br>
+            
+            <div id="filtre">
+                <h3><button id="filter_display"><i class="material-icons">expand_more</i></button> Filtre</h3><br>
+                <label> Denumire:
+                    <input id="i_text" type="text" value="">
+                    <p id="invalid"></p>
+                </label><br>
+                <label for="i_pret"> Pret max:
+                    <input id="i_pret" type="range" min="10" max="<%= locals.pretMax[0].Pret %>" step="10" value="<%= locals.pretMax[0].Pret %>" oninput="this.nextElementSibling.value = this.value">
+                    <output id="o_pret"><%= locals.pretMax[0].Pret %></output> lei
+                </label><br>
+                <label>
+                    <input id="i_radio4" type="radio" name="gr_radio" checked value="Toate"> Toate
+                </label><br>
+
+                <% for (let i=0; i<locals.categ.length; i++) { %>
+                <label>
+                    <input id="i_radio<%= i+1 %>" type="radio" name="gr_radio" value="<%= locals.categ[i].Categorie %>"> <%= locals.categ[i].Categorie %>
+                </label><br>
+                <% } %>
+                
+                <label> Rama:
+                    <input id="i_rama" type="checkbox" checked value="Da">
+                </label><br>
+                <label> Taguri: &nbsp;&nbsp;&nbsp;&nbsp;
+                    <select id="i_tag" multiple size="7">
+                        <option value="toate" selected>toate</option>
+
+                        <% for (let i=0; i<locals.taguri.length - 1; i++) { %>
+                            <option value="<%= locals.taguri[i] %>"><%= locals.taguri[i] %></option>
+                        <% } %>
+
+                    </select>
+                </label><br>
+                <label> Textarea:
+                    <textarea id="i_textarea"></textarea>
+                </label><br>
+                <label> Marime: &nbsp;
+                    <select id="i_tip">
+                        <option value="0" selected>Toate</option>
+                        
+                        <% for (let i=0; i<locals.marimi.length; i++) { %>
+                            <option value="<%= locals.marimi[i].Marime_Ax %>">A<%= locals.marimi[i].Marime_Ax %></option>
+                        <% } %>
+                    
+                    </select>
+                </label><br><br>
+
+                <button id="filtreaza">Filtreaza</button>
+                <button id="asc">Ascendent</button>
+                <button id="desc">Descendent</button>
+                <button id="calcul">Calcul pret total</button>
+                <button id="reset">Reset</button><br>
+                <p id="pretTotal"></p>
+            </div>
+
+            <div id="an"> 
+                
+                <% for (let i=0; i<locals.anunturi.length; ++i) { %>
+                    <%- include("../fragmente/anunt.ejs", {anunt:locals.anunturi[i]}) %>
+                <% } %>
+            
+            </div>   
+        </section>
+
+        <div id="despre">
+            <br>
+            <h2>Despre</h2>
+            <p>despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre
+                despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre
+                despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre 
+                despre despre despre despre despre despre despre despre despre despre  
+            </p>
+        </div>
+
+        <%- include("../fragmente/banner.ejs") %>
+
+    </main>
+
+    <footer>
+
+        <%- include("../fragmente/footer.ejs") %>
+        
+    </footer>
+</body>
+</html>

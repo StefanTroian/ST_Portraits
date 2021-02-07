@@ -1,0 +1,14 @@
+nav {
+    z-index: 100;
+}
+
+main {
+    display: block;
+    >*:not(#banner) {
+        margin-bottom: 2rem;
+    }
+}
+
+#tabel {
+    overflow-x: scroll;
+}

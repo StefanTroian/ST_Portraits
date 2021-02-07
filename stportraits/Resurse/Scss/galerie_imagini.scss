@@ -1,0 +1,54 @@
+main {
+    counter-reset: counter;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+        'gr-galerie gr-galerie gr-galerie'
+        'gr-detalii gr-detalii gr-detalii';
+    overflow: hidden;
+    padding-top: 3rem;
+}
+
+#galerie {
+    grid-area: gr-galerie;
+}
+
+#gr {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 0.4rem;
+    // grid-row-gap: 0.4rem;
+    
+    figure {
+        padding: 0;
+        margin: 0;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    /*counter ---------------------------------------------------*/
+    &>*::after {
+        counter-increment: counter;
+        content: "Portret " counter(counter);
+        margin-left: 40%;
+    }
+
+}
+
+/*tranzitie ---------------------------------------------------*/
+img:not(#icon):not(#img_user) {
+    transition: transform 1s;
+    border-radius: 0.3rem;
+    
+    &:hover {
+        transform: rotate(360deg) scale(1.5);
+        border-radius: 1rem;
+    }
+}

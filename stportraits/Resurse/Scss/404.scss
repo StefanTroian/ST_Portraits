@@ -1,0 +1,14 @@
+main {
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    
+    &>div:not(#banner) {
+        padding: 10%;
+        font-size: 5vw;
+        text-align: center;
+    }
+}
+
+#light-dark {
+    display: none;
+}
