@@ -11,7 +11,8 @@ var conexiune = mysql.createConnection({
 	user:"bb3aceb5f21b91",
 	password:"ac838a4c",
 	database:"heroku_1798208f3443111",
-	multipleStatements: true
+	multipleStatements: true,
+	reconnect: true
 });
 
 conexiune.connect(function(err){
