@@ -7,10 +7,10 @@ var fs = require('fs');
 var session = require('express-session');
 var mysql = require('mysql');
 var conexiune = mysql.createConnection({
-	host:"127.0.0.1",
-	user:"root",
-	password:"mysqlroot",
-	database:"stportraits",
+	host:"eu-cdbr-west-03.cleardb.net",
+	user:"bb3aceb5f21b91",
+	password:"ac838a4c",
+	database:"heroku_1798208f3443111",
 	multipleStatements: true
 });
 
