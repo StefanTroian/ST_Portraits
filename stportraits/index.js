@@ -47,8 +47,8 @@ app.get('/', function(req, res){
 	conexiune.query("select * from anunt; " +
 					"select distinct Marime_Ax from anunt order by 1; " + 
 					"select distinct Categorie from anunt; " + 
-					"select Taguri from stportraits.anunt;" + 
-					"select max(Pret) Pret from stportraits.anunt;",
+					"select Taguri from anunt;" + 
+					"select max(Pret) Pret from anunt;",
 	function(err, rezultat, campuri){
 		if(err) throw err;
 		
@@ -86,8 +86,8 @@ app.get('/index', function(req, res){
 	conexiune.query("select * from anunt; " +
 					"select distinct Marime_Ax from anunt order by 1; " + 
 					"select distinct Categorie from anunt; " + 
-					"select Taguri from stportraits.anunt;" + 
-					"select max(Pret) Pret from stportraits.anunt;",
+					"select Taguri from anunt;" + 
+					"select max(Pret) Pret from anunt;",
 	function(err, rezultat, campuri){
 		if(err) throw err;
 		
@@ -394,7 +394,7 @@ app.post("/login",function(req, res){
 		unescapedUser = campuriText.username;
 		campuriText.username=mysql.escape(campuriText.username);
 
-		conexiune.query(`select * from anunt; select distinct Marime_Ax from anunt order by 1; select distinct Categorie from anunt; select Taguri from stportraits.anunt;select max(Pret) Pret from stportraits.anunt;select Rol, Mail, Nume, Prenume, Blocat, Imagine_user from user where Username=${campuriText.username} and Parola=${parolaCriptata};`,
+		conexiune.query(`select * from anunt; select distinct Marime_Ax from anunt order by 1; select distinct Categorie from anunt; select Taguri from anunt;select max(Pret) Pret from anunt;select Rol, Mail, Nume, Prenume, Blocat, Imagine_user from user where Username=${campuriText.username} and Parola=${parolaCriptata};`,
 			function(err, rezultat, campuri){
 				if(err) throw err;
 				
