@@ -6,19 +6,34 @@ var nodemailer = require('nodemailer');
 var fs = require('fs');
 var session = require('express-session');
 var mysql = require('mysql');
-var conexiune = mysql.createConnection({
-	host:"eu-cdbr-west-03.cleardb.net",
-	user:"bb3aceb5f21b91",
-	password:"ac838a4c",
-	database:"heroku_1798208f3443111",
-	multipleStatements: true,
-	reconnect: true
-});
-
-conexiune.connect(function(err){
-	if (err) throw err;
-	console.log("Conectat la baza de date");
-});
+var conexiune;
+var get_SQL_Connection = function () {
+	conexiune = mysql.createConnection ({
+		host:"eu-cdbr-west-03.cleardb.net",
+		user:"bb3aceb5f21b91",
+		password:"ac838a4c",
+		database:"heroku_1798208f3443111",
+		multipleStatements: true
+	});
+	conexiune.connect (function (err) {
+		if (err) {
+		console.log ("SQL CONNECT ERROR&gt" + err);
+		setTimeout (get_SQL_Connection, 2000);
+		} else {
+		console.log ("Conectat la baza de date.");
+		}
+	});
+	conexiune.on ('error', function (err) {
+		console.log ("SQL CONNECTION ERROR" + err);
+		if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+		console.log ('Reconectat ...');
+		get_SQL_Connection ();
+		} else {
+		throw err;
+		}
+	});
+}
+get_SQL_Connection ();
 
 var app=express();
 const http=require('http')
